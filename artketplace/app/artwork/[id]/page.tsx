@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, use } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -27,14 +27,15 @@ import { motion } from "framer-motion"
 import { SimilarArtworks } from "@/components/similar-artworks"
 import { PriceChart } from "@/components/price-chart"
 
-export default function ArtworkPage({ params }: { params: { id: string } }) {
+export default function ArtworkPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params)
   const [bidAmount, setBidAmount] = useState("460")
   const [liked, setLiked] = useState(false)
   const [activeImage, setActiveImage] = useState(0)
 
   // Mock data for the example
   const artwork = {
-    id: params.id,
+    id: id,
     title: "Abstract Harmony",
     description:
       "A vibrant abstract piece exploring the relationship between color and emotion. Created using acrylic on canvas with various textures and techniques.",

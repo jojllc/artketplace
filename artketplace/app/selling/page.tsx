@@ -13,10 +13,12 @@ export default function SellingPage() {
 
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
         <h1 className="text-3xl font-bold tracking-tight">My Selling</h1>
-        <Button className="flex items-center gap-2">
-          <PlusCircle className="h-4 w-4" />
-          List New Artwork
-        </Button>
+        <Link href="/selling/new">
+          <Button className="flex items-center gap-2">
+            <PlusCircle className="h-4 w-4" />
+            List New Artwork
+          </Button>
+        </Link>
       </div>
 
       <Tabs defaultValue="active" className="w-full">
